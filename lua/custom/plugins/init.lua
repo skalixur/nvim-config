@@ -16,4 +16,6 @@ return {
     config = true,
   },
   'andweeb/presence.nvim',
+   "lancewilhelm/horizon-extended.nvim",
+  "lunarvim/horizon.nvim"
 }
