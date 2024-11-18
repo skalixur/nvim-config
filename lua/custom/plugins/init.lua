@@ -2,6 +2,9 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
+
+-- Change emmet leader key
+
 return {
   'mattn/emmet-vim', --NOTE: here is my first plugin to add!
   'nvim-treesitter/nvim-treesitter-textobjects',
@@ -16,6 +19,10 @@ return {
     config = true,
   },
   'andweeb/presence.nvim',
-   "lancewilhelm/horizon-extended.nvim",
-  "lunarvim/horizon.nvim"
+  'lancewilhelm/horizon-extended.nvim',
+  'lunarvim/horizon.nvim',
+  'numToStr/Comment.nvim',
+  opts = {
+    -- add any options here
+  },
 }
