@@ -22,7 +22,10 @@ return {
   'lancewilhelm/horizon-extended.nvim',
   'lunarvim/horizon.nvim',
   'numToStr/Comment.nvim',
-  opts = {
-    -- add any options here
+  {
+    'smjonas/inc-rename.nvim',
+    config = function()
+      require('inc_rename').setup()
+    end,
   },
 }

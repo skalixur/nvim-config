@@ -3,6 +3,8 @@ require 'custom.remaps.undotree'
 require 'custom.remaps.fugitive'
 require 'custom.remaps.live-server'
 
+require('Comment').setup()
+
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Focus window to the right' })
 
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open explorer' })
@@ -17,3 +19,5 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
 vim.keymap.set('x', '<leader>p', [["_dp]])
+
+vim.keymap.set('n', '<leader>o', vim.cmd.only, { desc = '[O]nly' })
