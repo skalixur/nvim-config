@@ -24,8 +24,6 @@ return {
   'numToStr/Comment.nvim',
   {
     'smjonas/inc-rename.nvim',
-    config = function()
-      require('inc_rename').setup()
-    end,
+    opts = {}
   },
 }
