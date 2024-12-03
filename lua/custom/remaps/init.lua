@@ -21,3 +21,7 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('x', '<leader>p', [["_dp]])
 
 vim.keymap.set('n', '<leader>o', vim.cmd.only, { desc = '[O]nly' })
+
+vim.keymap.set('n', '<leader>rn', function()
+  return ':IncRename ' .. vim.fn.expand '<cword>'
+end, { expr = true })
