@@ -1,5 +1,5 @@
 return {
-  'mattn/emmet-vim',
+  -- 'mattn/emmet-vim',
   'nvim-treesitter/nvim-treesitter-textobjects',
   'nvim-treesitter/nvim-treesitter-context',
   'theprimeagen/harpoon',
@@ -23,4 +23,10 @@ return {
   'ap/vim-css-color',
   'vim-airline/vim-airline',
   'vim-airline/vim-airline-themes',
+  {
+    'olrtg/nvim-emmet',
+    config = function()
+      vim.keymap.set({ 'n', 'v' }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+    end,
+  },
 }

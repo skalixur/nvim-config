@@ -559,6 +559,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
+        emmet_language_server = {},
         ts_ls = {},
         html = {
           capabilities = capabilities,
@@ -691,6 +692,17 @@ require('lazy').setup({
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'roginfarrer/cmp-css-variables',
+      {
+        'Jezda1337/nvim-html-css',
+        dependencies = {
+          'nvim-treesitter/nvim-treesitter',
+          'nvim-lua/plenary.nvim',
+        },
+        config = function()
+          require('html-css'):setup()
+        end,
+      },
     },
     config = function()
       -- See `:help cmp`
@@ -801,8 +813,12 @@ require('lazy').setup({
           },
           { name = 'luasnip' },
           { name = 'nvim_lsp' },
-          -- { name = 'nvim_lsp_signature_help' },
+          { name = 'nvim_lsp_signature_help' },
+          { name = 'nvim_lua' },
           { name = 'path' },
+          { name = 'calc' },
+          { name = 'css-variables' },
+          { name = 'nvim-html-css' },
         },
       }
     end,
