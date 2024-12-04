@@ -693,16 +693,6 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'roginfarrer/cmp-css-variables',
-      {
-        'Jezda1337/nvim-html-css',
-        dependencies = {
-          'nvim-treesitter/nvim-treesitter',
-          'nvim-lua/plenary.nvim',
-        },
-        config = function()
-          require('html-css'):setup()
-        end,
-      },
     },
     config = function()
       -- See `:help cmp`
@@ -818,7 +808,6 @@ require('lazy').setup({
           { name = 'path' },
           { name = 'calc' },
           { name = 'css-variables' },
-          { name = 'nvim-html-css' },
         },
       }
     end,
