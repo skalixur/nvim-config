@@ -26,7 +26,7 @@ return {
   'hrsh7th/cmp-nvim-lua',
   'hrsh7th/cmp-calc',
   'hrsh7th/cmp-path',
-  'roginfarrer/cmp-css-variables',
+  -- 'roginfarrer/cmp-css-variables',
   --
   'ap/vim-css-color',
   'vim-airline/vim-airline',

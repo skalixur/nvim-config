@@ -17,8 +17,8 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.wrap = true
@@ -716,7 +716,7 @@ require('lazy').setup({
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           --NOTE: from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
-          ['<Tab>'] = cmp.mapping(function(fallback)
+          ['<CR>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               if luasnip.expandable() then
                 luasnip.expand()
@@ -789,7 +789,7 @@ require('lazy').setup({
           { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lua' },
           { name = 'path' },
-          { name = 'css-variables' },
+          -- { name = 'css-variables' },
         },
       }
     end,
