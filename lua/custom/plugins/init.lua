@@ -4,6 +4,7 @@ return {
   'nvim-treesitter/nvim-treesitter-context',
   'theprimeagen/harpoon',
   'mbbill/undotree',
+  'tpope/vim-repeat',
   'tpope/vim-fugitive',
   {
     'barrett-ruth/live-server.nvim',
@@ -37,4 +38,5 @@ return {
       vim.keymap.set({ 'n', 'v' }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
     end,
   },
+  'harrisoncramer/jump-tag',
 }

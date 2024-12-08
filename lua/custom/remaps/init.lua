@@ -2,6 +2,7 @@ require 'custom.remaps.harpoon'
 require 'custom.remaps.undotree'
 require 'custom.remaps.fugitive'
 require 'custom.remaps.live-server'
+require 'custom.remaps.jump-tag'
 
 require('Comment').setup()
 
