@@ -1,4 +1,5 @@
 require 'custom.remaps.harpoon'
+require 'custom.remaps.fugitive'
 require 'custom.remaps.undotree'
 require 'custom.remaps.fugitive'
 require 'custom.remaps.live-server'
@@ -29,3 +30,18 @@ end, { expr = true })
 
 vim.keymap.set('n', '<C-s>', vim.cmd.w)
 vim.keymap.set('i', '<C-s>', vim.cmd.w)
+
+vim.keymap.set('n', '<C-_>', function()
+  require('Comment.api').toggle.linewise.current()
+end, { noremap = true, silent = true })
+
+local function visualCommentToggle()
+  local api = require 'Comment.api'
+  local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
+  vim.api.nvim_feedkeys(esc, 'nx', false)
+  api.locked 'toggle.linewise'(vim.fn.visualmode())
+  vim.cmd 'normal! gv'
+end
+
+vim.keymap.set('x', 'gc', visualCommentToggle, { desc = 'Comment toggle linewise (visual) and preserve the visual selection' })
+vim.keymap.set('x', '<C-_>', visualCommentToggle, { desc = 'Comment toggle linewise (visual) and preserve the visual selection' })
