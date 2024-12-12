@@ -39,4 +39,11 @@ return {
     end,
   },
   'harrisoncramer/jump-tag',
+  'tpope/vim-abolish',
+  {
+    'Aityz/usage.nvim',
+    opts = {
+      mode = 'notify',
+    },
+  },
 }

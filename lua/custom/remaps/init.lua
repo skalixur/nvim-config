@@ -31,9 +31,14 @@ end, { expr = true })
 vim.keymap.set('n', '<C-s>', vim.cmd.w)
 vim.keymap.set('i', '<C-s>', vim.cmd.w)
 
-vim.keymap.set('n', '<C-_>', function()
+vim.api.nvim_set_keymap('n', '<C-q>', 'o<Esc>O', { noremap = true, silent = true })
+
+local function normalInsertCommentToggle()
   require('Comment.api').toggle.linewise.current()
-end, { noremap = true, silent = true })
+end
+
+vim.keymap.set('n', '<C-_>', normalInsertCommentToggle, { noremap = true, silent = true })
+vim.keymap.set('i', '<C-_>', normalInsertCommentToggle, { noremap = true, silent = true })
 
 local function visualCommentToggle()
   local api = require 'Comment.api'
