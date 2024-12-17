@@ -3,6 +3,7 @@ local ui = require 'harpoon.ui'
 
 vim.keymap.set('n', '<leader>a', mark.add_file, { desc = 'Harpoon mark file' })
 vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
+vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks<CR>', { desc = '[S]earch harpoon [M]arks' })
 
 vim.keymap.set('n', '<A-h>', function()
   ui.nav_file(1)

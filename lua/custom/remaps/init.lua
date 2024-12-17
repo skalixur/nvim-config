@@ -50,3 +50,11 @@ end
 
 vim.keymap.set('x', 'gc', visualCommentToggle, { desc = 'Comment toggle linewise (visual) and preserve the visual selection' })
 vim.keymap.set('x', '<C-_>', visualCommentToggle, { desc = 'Comment toggle linewise (visual) and preserve the visual selection' })
+
+-- Resize window horizontally
+vim.keymap.set('n', '<A-0>', ':vertical resize -5<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-9>', ':vertical resize +5<CR>', { noremap = true, silent = true })
+
+-- Resize window vertically
+vim.keymap.set('n', '<A-->', ':resize -5<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-=>', ':resize +5<CR>', { noremap = true, silent = true })
