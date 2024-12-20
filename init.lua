@@ -133,16 +133,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
-  end
-end ---@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
+require 'lazy-bootstrap'
 
 -- [[ Configure and install plugins ]]
 --
@@ -618,6 +609,7 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -648,8 +640,8 @@ require('lazy').setup({
               require('luasnip.loaders.from_vscode').lazy_load()
 
               require('luasnip').filetype_extend('typescript', { 'tsdoc' })
-              require('luasnip').filetype_extend('javascript', { 'jsdoc' })
               require('luasnip').filetype_extend('lua', { 'luadoc' })
+              require('luasnip').filetype_extend('javascript', { 'jsdoc' })
               require('luasnip').filetype_extend('python', { 'pydoc' })
               require('luasnip').filetype_extend('rust', { 'rustdoc' })
               require('luasnip').filetype_extend('cs', { 'csharpdoc' })
@@ -661,6 +653,7 @@ require('lazy').setup({
               require('luasnip').filetype_extend('ruby', { 'rdoc' })
               require('luasnip').filetype_extend('sh', { 'shelldoc' })
               require('luasnip').filetype_extend('javascript', { 'javascript' })
+              require('luasnip').filetype_extend('typescript', { 'javascript' })
             end,
           },
         },
@@ -787,6 +780,7 @@ require('lazy').setup({
           { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lua' },
           { name = 'path' },
+
           -- { name = 'css-variables' },
         },
       }

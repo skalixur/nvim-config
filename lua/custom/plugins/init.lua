@@ -1,5 +1,4 @@
 return {
-  -- 'mattn/emmet-vim',
   'nvim-treesitter/nvim-treesitter-textobjects',
   'nvim-treesitter/nvim-treesitter-context',
   'theprimeagen/harpoon',
@@ -27,7 +26,7 @@ return {
   'hrsh7th/cmp-nvim-lua',
   'hrsh7th/cmp-calc',
   'hrsh7th/cmp-path',
-  -- 'roginfarrer/cmp-css-variables',
+  'roginfarrer/cmp-css-variables',
   --
   'ap/vim-css-color',
   'vim-airline/vim-airline',
@@ -51,5 +50,21 @@ return {
     config = function()
       require('colorizer').setup()
     end,
+    -- lazy.nvim
+    {
+      'folke/noice.nvim',
+      event = 'VeryLazy',
+      opts = {
+        presets = { inc_rename = true },
+      },
+      dependencies = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        'MunifTanjim/nui.nvim',
+        -- OPTIONAL:
+        --   `nvim-notify` is only needed, if you want to use the notification view.
+        --   If not available, we use `mini` as the fallback
+        'rcarriga/nvim-notify',
+      },
+    },
   },
 }
