@@ -1,4 +1,4 @@
--- Set <space> as the leader key
+-- Set <space> as the leader keyinit
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -862,24 +862,47 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      -- There are additional nvim-treesitter modules that you can use to interact
+      -- with nvim-treesitter. You should go explore a few and see what interests you:
+      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<leader>ns', -- Initialize incremental selection
+          node_incremental = '<leader>nn', -- Increment to the next node
+          node_decremental = '<leader>np', -- Decrement to the previous node
+          scope_incremental = '<leader>no', -- Increment to the outer scope
+        },
+      },
+
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ap'] = '@parameter.outer',
+            ['ip'] = '@parameter.inner',
+            ['aa'] = '@attribute.outer',
+            ['ia'] = '@attribute.inner',
+            ['ac'] = '@conditional.outer',
+            ['ic'] = '@conditional.inner',
+            ['ai'] = '@loop.outer',
+            ['ii'] = '@loop.inner',
+            ['a/'] = '@comment.outer',
+            ['i/'] = '@comment.inner',
+            ['at'] = '@tag.outer', -- Select the entire tag including start and end tags
+            ['it'] = '@tag.inner', -- Select only the inner content of the tag
+          },
+        },
+      },
     },
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
-
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-  --
-  --  Here are some example plugins that I've included in the Kickstart repository.
-  --  Uncomment any of the lines below to enable them (you will need to restart nvim).
-  --
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
