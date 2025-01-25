@@ -58,3 +58,5 @@ vim.keymap.set('n', '<A-9>', ':vertical resize +5<CR>', { noremap = true, silent
 -- Resize window vertically
 vim.keymap.set('n', '<A-->', ':resize -5<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-=>', ':resize +5<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('v', '<leader>a', '<Esc>`>a', { noremap = true, silent = true, desc = '[A]ppend to end of previous selection' })
