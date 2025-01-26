@@ -1,6 +1,7 @@
 return {
-  'nvim-treesitter/nvim-treesitter-textobjects',
-  'nvim-treesitter/nvim-treesitter-context',
+  'vim-airline/vim-airline',
+  'vim-airline/vim-airline-themes',
+  'ap/vim-css-color',
   'theprimeagen/harpoon',
   'mbbill/undotree',
   'tpope/vim-repeat',
@@ -42,18 +43,6 @@ return {
       input_buffer_type = 'dressing',
     },
   },
-  -- nvim-cmp sources (because they don't work when set as a dependency?)
-  'hrsh7th/cmp-nvim-lsp',
-  'saadparwaiz1/cmp_luasnip',
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-  'hrsh7th/cmp-nvim-lua',
-  'hrsh7th/cmp-calc',
-  'hrsh7th/cmp-path',
-  'roginfarrer/cmp-css-variables',
-  --
-  'ap/vim-css-color',
-  'vim-airline/vim-airline',
-  'vim-airline/vim-airline-themes',
   {
     'olrtg/nvim-emmet',
     config = function()
@@ -118,6 +107,11 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
+    opts = {},
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {},
   },
 }

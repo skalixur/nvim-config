@@ -18,6 +18,9 @@ return {
       follow_current_file = {
         enabled = true,
       },
+      filtered_items = {
+        visible = true,
+      },
       use_libuv_file_watcher = true,
       window = {
         mappings = {
