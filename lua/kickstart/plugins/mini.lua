@@ -28,22 +28,29 @@ return {
       },
     }
 
-    -- Simple and easy statusline.
-    --  You could remove this setup call if you don't like it,
-    --  and try some other statusline plugin
-    -- local statusline = require 'mini.statusline'
-    -- set use_icons to true if you have a Nerd Font
-    -- statusline.setup { use_icons = vim.g.have_nerd_font }
+    require('mini.move').setup {}
+    require('mini.splitjoin').setup {}
+    require('mini.jump').setup {}
+    require('mini.icons').setup {}
+    require('mini.cursorword').setup {}
+    require('mini.indentscope').setup {}
+    require('mini.sessions').setup {}
+    local starter = require 'mini.starter'
 
-    -- You can configure sections in the statusline by overriding their
-    -- default behavior. For example, here we set the section for
-    -- cursor location to LINE:COLUMN
-    ---@diagnostic disable-next-line: duplicate-set-field
-    -- statusline.section_location = function()
-    -- return '%2l:%-2v'
-    -- end
-
-    -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
+    starter.setup {
+      evaluate_single = true,
+      items = {
+        starter.sections.builtin_actions(),
+        starter.sections.recent_files(10, false),
+        starter.sections.sessions(5, true),
+      },
+      footer = '',
+      content_hooks = {
+        starter.gen_hook.aligning('center', 'center'),
+        starter.gen_hook.adding_bullet('\t', false),
+        starter.gen_hook.indexing('all', { 'Builtin actions' }),
+        starter.gen_hook.padding(3, 2),
+      },
+    }
   end,
 }
