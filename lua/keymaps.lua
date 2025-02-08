@@ -94,3 +94,7 @@ vim.keymap.set('n', '<A-=>', ':resize +5<CR>', { noremap = true, silent = true }
 
 vim.keymap.set('v', '<leader>a', '<Esc>`>a', { noremap = true, silent = true, desc = '[A]ppend to end of previous selection' })
 vim.keymap.set('n', '<leader>a', '<Esc>`>a', { noremap = true, silent = true, desc = '[A]ppend to end of previous selection' })
+
+-- Arrow keys to command mode
+vim.keymap.set('n', '<Up>', ':', { noremap = true })
+vim.keymap.set('n', '<Down>', ':<C-p>', { noremap = true })
